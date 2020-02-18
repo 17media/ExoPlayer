@@ -11,6 +11,9 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
+apply from: 'extra.gradle.kts'
+
 buildscript {
     repositories {
         google()
@@ -20,6 +23,8 @@ buildscript {
         classpath 'com.android.tools.build:gradle:3.1.4'
         classpath 'com.novoda:bintray-release:0.8.1'
         classpath 'com.google.android.gms:strict-version-matcher-plugin:1.0.3'
+        classpath group: 'org.apache.maven', name: 'maven-plugin-api', version: '3.6.3'
+
     }
     // Workaround for the following test coverage issue. Remove when fixed:
     // https://code.google.com/p/android/issues/detail?id=226070
@@ -35,9 +40,9 @@ allprojects {
         google()
         jcenter()
     }
-    project.ext {
-        exoplayerPublishEnabled = true
-    }
+//    project.ext {
+//        exoplayerPublishEnabled = true
+//    }
     if (it.hasProperty('externalBuildDir')) {
         if (!new File(externalBuildDir).isAbsolute()) {
             externalBuildDir = new File(rootDir, externalBuildDir)

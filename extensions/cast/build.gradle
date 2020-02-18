@@ -13,6 +13,7 @@
 // limitations under the License.
 apply from: '../../constants.gradle'
 apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
 
 android {
     compileSdkVersion project.ext.compileSdkVersion
@@ -59,4 +60,4 @@ ext {
     releaseArtifact = 'extension-cast'
     releaseDescription = 'Cast extension for ExoPlayer.'
 }
-apply from: '../../publish.gradle'
+apply from: '../../publish.gradle.kts'

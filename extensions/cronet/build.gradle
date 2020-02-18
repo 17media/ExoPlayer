@@ -46,4 +46,4 @@ ext {
     releaseArtifact = 'extension-cronet'
     releaseDescription = 'Cronet extension for ExoPlayer.'
 }
-apply from: '../../publish.gradle'
+apply from: '../../publish.gradle.kts'
