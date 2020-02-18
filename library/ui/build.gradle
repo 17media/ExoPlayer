@@ -54,4 +54,4 @@ ext {
     releaseArtifact = 'exoplayer-ui'
     releaseDescription = 'The ExoPlayer library UI module.'
 }
-apply from: '../../publish.gradle'
+apply from: '../../publish.gradle.kts'

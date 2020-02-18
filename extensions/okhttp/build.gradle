@@ -53,4 +53,4 @@ ext {
     releaseArtifact = 'extension-okhttp'
     releaseDescription = 'OkHttp extension for ExoPlayer.'
 }
-apply from: '../../publish.gradle'
+apply from: '../../publish.gradle.kts'

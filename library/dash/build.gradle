@@ -54,4 +54,4 @@ ext {
     releaseArtifact = 'exoplayer-dash'
     releaseDescription = 'The ExoPlayer library DASH module.'
 }
-apply from: '../../publish.gradle'
+apply from: '../../publish.gradle.kts'

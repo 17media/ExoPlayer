@@ -49,4 +49,4 @@ ext {
     releaseArtifact = 'extension-ima'
     releaseDescription = 'Interactive Media Ads extension for ExoPlayer.'
 }
-apply from: '../../publish.gradle'
+apply from: '../../publish.gradle.kts'

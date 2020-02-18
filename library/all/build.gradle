@@ -35,4 +35,4 @@ ext {
     releaseArtifact = 'exoplayer'
     releaseDescription = 'The ExoPlayer library (all modules).'
 }
-apply from: '../../publish.gradle'
+apply from: '../../publish.gradle.kts'

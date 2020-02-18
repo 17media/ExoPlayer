@@ -45,4 +45,4 @@ ext {
     releaseArtifact = 'extension-mediasession'
     releaseDescription = 'Media session extension for ExoPlayer.'
 }
-apply from: '../../publish.gradle'
+apply from: '../../publish.gradle.kts'
