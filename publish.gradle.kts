@@ -17,46 +17,19 @@ plugins.apply("maven-publish")
 
 if (project.extra.has("exoplayerPublishEnabled")
         && project.extra.get("exoplayerPublishEnabled") == true) {
-//    apply plugin: 'bintray-release'
-//    publish {
-//        artifactId = releaseArtifact
-//        desc = releaseDescription
-//        publishVersion = releaseVersion
-//        repoName = getBintrayRepo()
-//        userOrg = 'google'
-//        groupId = 'com.google.android.exoplayer'
-//        website = 'https://github.com/google/ExoPlayer'
-//    }
     configure<PublishingExtension> {
         repositories {
             maven {
-                url = uri("$buildDir/repo")
+                url = uri("$buildDir/../../../repo")
             }
         }
         publications {
-            register("mavenJava", MavenPublication::class) {
+            register("aar", MavenPublication::class) {
                 groupId = "com.google.android.exoplayer"
                 artifactId =  project.extra.get("releaseArtifact") as String
                 version = (project.extra.get("releaseVersion") as String) + "-wave"
-                artifact = "$buildDir/outputs/aar/${project.name}-debug.aar"
-//                from(components["java"])
-//                artifact(sourcesJar.get())
+                artifact("$buildDir/outputs/aar/${project.name}-debug.aar")
             }
         }
     }
-//    publishing {
-//        publications {
-//            library(MavenPublication) {
-//                groupId 'com.google.android.exoplayer'
-//                artifactId releaseArtifact
-//                version releaseVersion
-//                artifact("$buildDir/outputs/aar/${project.name}-debug.aar")
-//            }
-//        }
-//        repositories {
-//            maven {
-//                url "$buildDir/repo"
-//            }
-//        }
-//    }
 }
