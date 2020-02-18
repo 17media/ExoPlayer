@@ -19,10 +19,12 @@ import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.ParserException;
 import com.google.android.exoplayer2.extractor.TrackOutput;
+import com.google.android.exoplayer2.extractor.ts.WaveSeiCallback;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.NalUnitUtil;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.video.AvcConfig;
+import java.lang.ref.WeakReference;
 
 /**
  * Parses video tags from an FLV stream and extracts H.264 nal units.
@@ -104,6 +106,11 @@ import com.google.android.exoplayer2.video.AvcConfig;
       // TODO: Deduplicate with Mp4Extractor.
       // Zero the top three bytes of the array that we'll use to decode nal unit lengths, in case
       // they're only 1 or 2 bytes long.
+
+      if(FlvExtractor.seiCallback.get() != null){
+        FlvExtractor.seiCallback.get().onSeiFrame(data);
+      }
+
       byte[] nalLengthData = nalLength.data;
       nalLengthData[0] = 0;
       nalLengthData[1] = 0;

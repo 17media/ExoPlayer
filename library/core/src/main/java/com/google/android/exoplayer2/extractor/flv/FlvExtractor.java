@@ -23,16 +23,20 @@ import com.google.android.exoplayer2.extractor.ExtractorOutput;
 import com.google.android.exoplayer2.extractor.ExtractorsFactory;
 import com.google.android.exoplayer2.extractor.PositionHolder;
 import com.google.android.exoplayer2.extractor.SeekMap;
+import com.google.android.exoplayer2.extractor.ts.WaveSeiCallback;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.io.IOException;
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import java.lang.ref.WeakReference;
 
 /**
  * Extracts data from the FLV container format.
  */
 public final class FlvExtractor implements Extractor {
+
+  public static WeakReference<WaveSeiCallback> seiCallback = null;
 
   /** Factory for {@link FlvExtractor} instances. */
   public static final ExtractorsFactory FACTORY = () -> new Extractor[] {new FlvExtractor()};
