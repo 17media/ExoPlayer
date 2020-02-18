@@ -4,6 +4,7 @@ gen
 libs
 obj
 lint.xml
+/repo/
 
 # IntelliJ IDEA
 .idea
