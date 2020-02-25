@@ -38,9 +38,6 @@ allprojects {
         google()
         jcenter()
     }
-    project.ext {
-        exoplayerPublishEnabled = false
-    }
     if (it.hasProperty('externalBuildDir')) {
         if (!new File(externalBuildDir).isAbsolute()) {
             externalBuildDir = new File(rootDir, externalBuildDir)
